@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rancho El Trauco</title>
+  <meta name="description" content="Tradición, vino y encuentro en el campo chileno. Quincho, terraza al atardecer, Viñas Rodríguez, huerta, caballos y rayuela." />
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=EB+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Swiper CSS (antes) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+  <!-- Tus estilos -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <a class="logo" href="#inicio">
+        <span class="logo-mark"></span>
+        <span>RANCHO EL TRAUCO</span>
+      </a>
+
+      <nav>
+        <button class="hamb" aria-label="Abrir menú" onclick="toggleMenu()">☰</button>
+        <ul id="menu">
+          <li><a href="#rancho">EL RANCHO</a></li>
+          <li><a href="#experiencias">EXPERIENCIAS</a></li>
+          <li><a href="#vinas">VIÑA</a></li>
+          <li><a href="#galeria">GALERÍA</a></li>
+          <li><a href="#contacto">CONTACTO</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <!-- HERO en video a pantalla completa -->
+    <section class="video-hero">
+      <video autoplay muted loop playsinline>
+        <source src="./videos/rancho3.mp4" type="video/mp4" />
+        Tu navegador no soporta el video.
+      </video>
+
+      <div class="video-overlay">
+        <h1>Bienvenido a Rancho El Trauco</h1>
+        <p>Tradición, vino y encuentro en el corazón del campo chileno</p>
+        <div class="cta">
+          <a class="btn primary" href="#vinas">Conocer el vino</a>
+          <a class="btn" href="#experiencias">Ver experiencias</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- El Rancho -->
+    <section id="rancho">
+      <div class="container">
+        <h2>El Rancho</h2>
+        <p class="sub">
+          Proyecto familiar creado por Patricio Rodríguez, construido a pulso con madera, fuego y conversaciones largas.
+        </p>
+
+        <div class="grid cols-3">
+          <!-- Card Quincho -->
+          <article class="card">
+            <div class="card-media">
+              <img src="./images/entrada.JPG" alt="Quincho del rancho con parrilla bajo los pinos" loading="lazy" />
+            </div>
+            <h3>Quincho</h3>
+            <p>Espacio amplio con parrilla y chimenea para disfrutar con familia y amigos, verano e invierno.</p>
+            <ul class="features">
+              <li>Parrilla a carbón</li>
+              <li>Chimenea interior</li>
+              <li>Capacidad 20 personas</li>
+            </ul>
+            <div class="card-actions right">
+              <a class="btn" href="#contacto">Reservar quincho</a>
+            </div>
+          </article>
+
+          <!-- Card Terraza -->
+          <article class="card">
+            <div class="card-media">
+              <img src="./images/terraza.JPG" alt="Terraza con vista al atardecer y sector lounge" loading="lazy" />
+            </div>
+            <h3>Terraza</h3>
+            <p>Mirador para ver el sol caer con una copa, conversar y desconectarse del ruido.</p>
+            <ul class="features">
+              <li>Vista al atardecer</li>
+              <li>Sector lounge</li>
+              <li>Deck de madera</li>
+            </ul>
+            <div class="card-actions right">
+              <a class="btn" href="#contacto">Coordinar visita</a>
+            </div>
+          </article>
+
+          <!-- Card Chimenea -->
+          <article class="card">
+            <div class="card-media">
+              <img src="./images/chimenea.JPG" alt="Chimenea encendida en el interior del rancho" loading="lazy" />
+            </div>
+            <h3>Chimenea</h3>
+            <p>Calor de hogar que acompaña los inviernos fríos y las historias de siempre.</p>
+            <ul class="features">
+              <li>Leña seca</li>
+              <li>Espacio interior</li>
+              <li>Ambiente acogedor</li>
+            </ul>
+            <div class="card-actions right">
+              <a class="btn" href="#contacto">Más información</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experiencias (carrusel Swiper con “peek”) -->
+    <section id="experiencias">
+      <div class="container">
+        <h2>Experiencias</h2>
+        <p class="sub">Vida de campo con ritmos propios: cosechar, jugar y compartir.</p>
+
+        <div class="swiper experiences-swiper">
+          <div class="swiper-wrapper gallery__items">
+            <!-- Slide 1 -->
+            <div class="swiper-slide gallery__slide">
+              <img class="gallery__image swiper-lazy" alt="Terraza al atardecer" height="480" data-src="./images/terraza.JPG" />
+              <div class="swiper-lazy-preloader"></div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="swiper-slide gallery__slide">
+              <img class="gallery__image swiper-lazy" alt="Huerta y frutales del rancho" height="480" data-src="./images/tomaten.JPG" />
+              <div class="swiper-lazy-preloader"></div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="swiper-slide gallery__slide">
+              <img class="gallery__image swiper-lazy" alt="Caballerizas del rancho" height="480" data-src="./images/caballos.JPG" />
+              <div class="swiper-lazy-preloader"></div>
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="swiper-slide gallery__slide">
+              <img class="gallery__image swiper-lazy" alt="Cosecha en la huerta" height="480" data-src="./images/IMG_6347.JPG" />
+              <div class="swiper-lazy-preloader"></div>
+            </div>
+          </div>
+
+          <!-- Controles -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Viñas Rodríguez -->
+    <section id="vinas">
+      <div class="container">
+        <h2>Viñas Rodríguez</h2>
+        <p class="sub">Vino hecho en casa, pensado para compartir.</p>
+
+        <div class="grid cols-2">
+          <!-- Video -->
+          <div class="card">
+            <div class="card-media">
+              <!-- Sugerencia: usa un MP4 sin espacios, ej. ./videos/vino.mp4 -->
+              <video autoplay muted loop playsinline preload="metadata" poster="./images/DSCN3203.JPG">
+                <!-- <source src="./videos/IMG_0006 3.MOV" type="video/quicktime" /> -->
+                <source src="./videos/IMG_0006%203.MOV" type="video/quicktime" />
+                <source src="./videos/IMG_0006 3.MOV" type="video/mp4" />
+                Tu navegador no soporta video HTML5.
+              </video>
+            </div>
+          </div>
+
+          <!-- Texto -->
+          <div class="card">
+            <h3>Nuestro Vino</h3>
+            <p>De parras familiares y manos conocidas. Notas a frutos rojos, madera suave y tardes de verano.</p>
+            <ul>
+              <li>Año: 2025</li>
+              <li>Variedad: Tinto de la casa</li>
+              <li>Proceso: artesanal y de baja escala</li>
+            </ul>
+            <div class="card-actions right">
+              <a class="btn" href="#contacto">Consulta disponibilidad</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Galería -->
+    <section id="galeria">
+      <div class="container">
+        <h2>Galería</h2>
+        <p class="sub">Postales del rancho: atardeceres, cosechas, fogatas y buenos momentos.</p>
+
+        <div class="masonry">
+          <figure>
+            <img src="./images/terraza.JPG" alt="Atardecer en la terraza" loading="lazy" />
+            <figcaption>Atardecer en la terraza</figcaption>
+          </figure>
+
+          <figure>
+            <img src="./images/tomaten.JPG" alt="Huerta en familia" loading="lazy" />
+            <figcaption>Huerta en familia</figcaption>
+          </figure>
+
+          <figure>
+            <img src="./images/IMG_6347.JPG" alt="Cosecha en la huerta" loading="lazy" />
+            <figcaption>Cosecha en la huerta</figcaption>
+          </figure>
+
+          <figure>
+            <img src="./images/caballos.JPG" alt="Caballos en el corral" loading="lazy" />
+            <figcaption>Caballos en el corral</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto">
+      <div class="container">
+        <h2>Contacto</h2>
+        <p class="sub">¿Quieres saber más del proyecto o coordinar una visita?</p>
+
+        <div class="grid cols-2 contact-grid">
+          <!-- Formulario -->
+          <form action="https://formspree.io/f/tu-endpoint" method="POST">
+            <input name="name" placeholder="Tu nombre" required />
+            <input type="email" name="email" placeholder="Tu correo" required />
+            <textarea name="message" placeholder="Cuéntanos" required></textarea>
+            <button class="btn primary" type="submit">Enviar</button>
+          </form>
+
+          <!-- Mapa -->
+          <div class="map-card">
+            <div class="map-embed">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3216.558578024147!2d-72.5245754!3d-36.2744944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96688df4cb64ae39%3A0x6d0f7d15f9f8b680!2sRancho%20El%20Trauco%20Quirihue!5e0!3m2!1ses!2scl!4v1758338342087!5m2!1ses!2scl"
+                loading="lazy"
+                allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Mapa — Rancho El Trauco, Quirihue"
+              ></iframe>
+            </div>
+
+            <div class="map-actions">
+              <a class="btn" target="_blank" rel="noopener"
+                 href="https://www.google.com/maps/place/Rancho+El+Trauco+Quirihue/@-36.2744944,-72.5245754,17z/data=!4m14!1m7!3m6!1s0x96688df4cb64ae39:0x6d0f7d15f9f8b680!2sRancho+El+Trauco+Quirihue!8m2!3d-36.2744944!4d-72.5245754!16s%2Fg%2F11g6jsm319!3m5!1s0x96688df4cb64ae39:0x6d0f7d15f9f8b680!8m2!3d-36.2744944!4d-72.5245754!16s%2Fg%2F11g6jsm319?entry=ttu&g_ep=EgoyMDI1MDkxNy4wIKXMDSoASAFQAw%3D%3D">
+                Abrir en Google Maps
+              </a>
+
+              <a class="btn primary" target="_blank" rel="noopener"
+                 href="https://www.google.com/maps/dir/?api=1&destination=-36.2744944,-72.5245754&travelmode=driving">
+                Cómo llegar
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Rancho El Trauco — Todos los Derechos Reservados ·
+      <a href="#inicio">Volver arriba</a>
+    </div>
+  </footer>
+
+  <!-- Swiper JS (antes de tu script para poder usarlo) -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- Tu JS -->
+  <script src="script.js"></script>
+</body>
+</html>

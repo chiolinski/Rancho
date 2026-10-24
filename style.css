@@ -1,0 +1,417 @@
+:root{
+  /* Paleta elegante “diva de campo” */
+  --bg:#ffffff;             /* blanco elegante (fallback) */
+  --ink:#2e2b29;            /* café oscuro tierra */
+  --muted:#6b5d57;          /* café suave */
+  --brand:#8C3C1C;          /* adobe chileno */
+  --accent:#3B6E4D;         /* verde árboles */
+  --gold:#CDA434;           /* dorado discreto */
+  --card:#ffffff;
+  --stroke:#e8e2dc;
+  --radius:20px; --pad:20px; --shadow:0 12px 36px rgba(0,0,0,.08);
+  --max:1200px;
+
+  /* Terracota + panel marfil */
+  --terra1:#8F4B2E;
+  --terra2:#6E351C;
+  --ivory:#FBF7F2;
+
+  /* Fuentes */
+  --font-display:"Cinzel", serif;     /* Títulos, menú, logo */
+  --font-text:"EB Garamond", serif;   /* Cuerpo de texto */
+}
+
+/* Base */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  /* Fondo café teja con viñeta suave */
+  background:
+    radial-gradient(1200px 600px at 50% -80px, rgba(255,255,255,.18), transparent 60%),
+    linear-gradient(165deg, var(--terra1) 0%, var(--terra2) 60%, #5b2b16 100%);
+  color:var(--ink);
+  font-family:var(--font-text), serif;
+  font-size:17px; line-height:1.55;
+}
+img,video{max-width:100%;height:auto;display:block;border-radius:14px}
+a{color:var(--brand);text-decoration:none;transition:.3s}
+a:hover{color:var(--accent)}
+.container{width:min(100%,var(--max));margin-inline:auto;padding:0 20px}
+
+/* Panel marfil para el contenido */
+main .container{
+  background: var(--ivory);
+  border: 1px solid rgba(0,0,0,.04);
+  border-radius: 28px;
+  padding: 28px 20px;
+  box-shadow: 0 18px 50px rgba(0,0,0,.12);
+}
+
+/* Header / Nav */
+header{
+  position:sticky; top:0; z-index:50;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:saturate(1.2) blur(10px);
+  border-bottom:2px solid rgba(255,255,255,.35);
+  box-shadow:0 10px 30px rgba(0,0,0,.12);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+.logo{
+  display:flex;gap:10px;align-items:center;
+  font-family:var(--font-display);
+  font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--brand);
+}
+.logo-mark{
+  width:40px;height:40px;border-radius:12px;
+  background:linear-gradient(135deg,var(--brand),var(--accent));
+  box-shadow:var(--shadow);
+}
+nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0}
+nav a{
+  padding:10px 14px;border-radius:14px;color:var(--ink);
+  font-family:var(--font-display);font-weight:600;
+  text-transform:uppercase;letter-spacing:.06em;
+}
+nav a:hover{background:var(--accent);color:#fff}
+.hamb{display:none}
+
+/* HERO: video pantalla completa */
+.video-hero{position:relative;isolation:isolate;height:100vh;overflow:hidden}
+.video-hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1}
+
+/* Overlay más contrastado + título en marfil */
+.video-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,
+    rgba(0,0,0,.58),
+    rgba(0,0,0,.36) 55%,
+    rgba(0,0,0,.65)
+  );
+  display:flex;align-items:center;justify-content:center;flex-direction:column;
+  text-align:center;color:#fff;
+}
+.video-overlay h1{
+  font-family:var(--font-display);font-weight:700;text-transform:uppercase;
+  letter-spacing:.06em;font-size:clamp(36px,7vw,72px);
+  color:#F6EFE1; /* marfil cálido */
+  text-shadow: 0 6px 24px rgba(0,0,0,.70), 0 0 1px rgba(0,0,0,.9);
+  -webkit-text-stroke: 1px rgba(0,0,0,.25);
+  margin:0;
+}
+.video-overlay p{margin-top:12px;font-size:clamp(16px,2.5vw,22px);color:rgba(255,255,255,.96)}
+.cta{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap;justify-content:center}
+
+/* Hero: desvanecer a marfil hacia la primera sección */
+.video-hero::after{
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:-1px;
+  height:160px;
+  background: linear-gradient(to bottom, rgba(251,247,242,0), var(--ivory) 70%);
+  pointer-events:none;
+  z-index:0;
+}
+/* Un pelín de aire sobre la primera sección para abrazar el fade */
+.video-hero + section{ padding-top:90px; }
+
+/* Botones */
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  border-radius:16px;padding:12px 18px;font-weight:800;
+  border:1px solid var(--stroke);background:var(--card);box-shadow:var(--shadow);
+  position:relative;overflow:hidden;
+}
+.btn::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);
+  transform:translateX(-120%);
+}
+.btn:hover::after{transition:transform .7s ease;transform:translateX(120%)}
+.btn.primary{
+  background:linear-gradient(135deg,var(--brand),var(--accent));
+  color:#fff;border:none;box-shadow:0 10px 24px rgba(60,110,77,.35)
+}
+
+/* Secciones */
+section{padding:70px 0;border-top:1px solid var(--stroke)}
+h2{
+  font-family:var(--font-display);font-weight:600;text-transform:uppercase;
+  letter-spacing:.06em;font-size:clamp(24px,3vw,36px);
+  margin:0 0 12px;color:var(--brand);
+}
+.sub{color:var(--muted);margin:0 0 30px}
+
+/* Grid & Cards */
+.grid{display:grid;gap:20px}
+@media (min-width:800px){
+  .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+  .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+}
+
+/* === EL RANCHO – mejoras visuales === */
+.grid.cols-3{ align-items: stretch; }
+.card{
+  background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);
+  padding:var(--pad);box-shadow:var(--shadow);transition:.3s;
+  display:flex;flex-direction:column;
+}
+.card:hover{ transform:translateY(-4px); box-shadow:0 14px 36px rgba(0,0,0,.12); }
+
+.card-media{
+  aspect-ratio:16/9;
+  border-radius:14px; overflow:hidden;
+  box-shadow:0 6px 18px rgba(0,0,0,.08);
+}
+.card-media img{
+  width:100%; height:100%; object-fit:cover;
+  transform:scale(1.02); transition:transform .35s ease, filter .35s ease;
+}
+.card-media video{
+  width:100%; height:100%; object-fit:cover; display:block;
+}
+.card:hover .card-media img{ transform:scale(1.06); filter:saturate(1.04) contrast(1.02); }
+
+/* “filo” superior glam */
+.card::before{
+  content:""; display:block; height:4px; margin:-20px -20px 16px -20px;
+  border-top-left-radius:20px; border-top-right-radius:20px;
+  background:linear-gradient(90deg,var(--gold),var(--brand),var(--accent));
+  opacity:.12;
+}
+.card h3{
+  margin:.2em 0 .4em; color:var(--accent);
+  font-family:var(--font-display); text-transform:uppercase; letter-spacing:.06em; font-weight:600;
+}
+.features{ list-style:none; padding:0; margin:12px 0 0; display:grid; gap:6px; }
+.features li{ position:relative; padding-left:18px; color:var(--ink); }
+.features li::before{
+  content:""; position:absolute; left:0; top:8px; width:8px; height:8px; border-radius:50%; background:var(--accent);
+}
+.card-actions{ margin-top:auto; }
+.card-actions .btn{ margin-top:14px; }
+.card-actions.right{ display:flex; justify-content:flex-end; }
+
+/* Galería masonry */
+.masonry{columns:1;column-gap:16px}
+@media (min-width:720px){.masonry{columns:2}}
+@media (min-width:1024px){.masonry{columns:3}}
+.masonry figure{break-inside:avoid;padding:0;margin:0 0 16px}
+.masonry figcaption{font-size:12px;color:var(--muted);margin-top:6px}
+
+/* Video embebido (YouTube/Vimeo) */
+.video{position:relative;padding-top:56.25%;border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* Formulario */
+form{display:grid;gap:12px;max-width:520px}
+input,textarea{
+  width:100%;padding:12px 14px;border-radius:12px;
+  border:1px solid var(--stroke);background:#fff;font:inherit;color:var(--ink)
+}
+input::placeholder, textarea::placeholder{color:#9a8f88}
+textarea{min-height:120px;resize:vertical}
+input:focus, textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(59,110,77,.12)}
+.notice{font-size:12px;color:var(--muted)}
+
+/* === Contacto: columnas igual altura + mapa a toda altura === */
+.contact-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:24px;
+  align-items:stretch;
+}
+.contact-grid > *{ height:100%; }
+
+#contacto form{
+  display:flex; flex-direction:column; gap:12px;
+  height:100%; max-width:none;
+}
+#contacto form .btn.primary{ margin-top:auto; }
+#contacto .notice{ margin-top:8px; }
+
+.map-card{ display:flex; flex-direction:column; height:100%; }
+
+/* ¡Importante!: NO fijamos aspect-ratio; dejamos que el mapa crezca en alto */
+.map-embed{
+  position:relative;
+  flex:1 1 auto;
+  min-height:420px;          /* altura rica en desktop */
+  height:auto;
+  border-radius:14px;
+  overflow:hidden;
+}
+.map-embed iframe{
+  position:absolute; inset:0; width:100%; height:100%; border:0;
+}
+.map-actions{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.map-note{margin-top:10px;font-size:14px;color:var(--muted)}
+
+/* Footer igual al header */
+footer{
+  padding:24px 0;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: saturate(1.2) blur(10px);
+  border-top: 2px solid rgba(255,255,255,.35);
+  box-shadow: 0 -10px 30px rgba(0,0,0,.12);
+  color: var(--muted);
+  text-align: center;
+}
+footer a{ color: var(--brand); }
+footer a:hover{ color: var(--accent); }
+
+/* Swiper “peek” + estilo acorde a la paleta */
+.experiences-swiper{
+  overflow: visible;         /* permite que se vean los bordes laterales */
+  padding: 0 72px;           /* “peek” lateral */
+}
+@media (max-width: 700px){
+  .experiences-swiper{ padding: 0 40px; }
+}
+
+/* Swiper “peek” + estilo acorde a la paleta */
+.experiences-swiper{
+  overflow: visible;         /* que se vean las vecinas */
+  padding: 0 72px;           /* “peek” lateral */
+}
+@media (max-width: 700px){
+  .experiences-swiper{ padding: 0 40px; }
+}
+
+/* Alinea verticalmente el contenido de cada slide */
+.experiences-swiper .swiper-wrapper{
+  align-items: stretch;
+}
+
+/* Cada slide: sin width:auto (Swiper calcula) */
+.experiences-swiper .swiper-slide{
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: var(--card);
+  transition: transform .35s ease, opacity .35s ease;
+  transform: scale(.97);
+  opacity: .96;
+}
+.experiences-swiper .swiper-slide.is-center{
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* imagen dentro */
+.gallery__image{
+  display:block;
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+}
+
+/* Oculta el spinner cuando la imagen cargó */
+.gallery__image.swiper-lazy-loaded + .swiper-lazy-preloader{
+  display: none !important;
+}
+
+/* Spinner (opcional) */
+.experiences-swiper .swiper-lazy-preloader{
+  width: 28px; height: 28px;
+  margin: -14px 0 0 -14px;
+}
+
+/* Flechas circulares sobrepuestas */
+.experiences-swiper .swiper-button-prev,
+.experiences-swiper .swiper-button-next{
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: rgba(0,0,0,.45);
+  border: 1px solid rgba(255,255,255,.65);
+  box-shadow: 0 8px 24px rgba(0,0,0,.28);
+}
+.experiences-swiper .swiper-button-prev:hover,
+.experiences-swiper .swiper-button-next:hover{
+  background: rgba(0,0,0,.6);
+}
+.experiences-swiper .swiper-button-prev::after,
+.experiences-swiper .swiper-button-next::after{
+  font-size: 20px; color:#fff;
+}
+
+/* Puntos */
+.experiences-swiper .swiper-pagination-bullet{ background: var(--muted); opacity:.5; }
+.experiences-swiper .swiper-pagination-bullet-active{ background: var(--brand); opacity:1; }
+
+
+/* tamaño responsive de cada slide */
+.experiences-swiper .swiper-slide{
+  width: auto;               /* Swiper calculará con slidesPerView */
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: var(--card);
+  transition: transform .35s ease, opacity .35s ease;
+  transform: scale(.96);
+  opacity: .92;
+}
+.experiences-swiper .swiper-slide.is-center{
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* imagen dentro */
+.gallery__image{
+  display:block;
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+}
+
+/* Flechas circulares sobrepuestas */
+.experiences-swiper .swiper-button-prev,
+.experiences-swiper .swiper-button-next{
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: rgba(0,0,0,.45);
+  border: 1px solid rgba(255,255,255,.65);
+  box-shadow: 0 8px 24px rgba(0,0,0,.28);
+}
+.experiences-swiper .swiper-button-prev:hover,
+.experiences-swiper .swiper-button-next:hover{
+  background: rgba(0,0,0,.6);
+}
+.experiences-swiper .swiper-button-prev::after,
+.experiences-swiper .swiper-button-next::after{
+  font-size: 20px; color:#fff;
+}
+
+/* Oculta el spinner cuando la imagen terminó de cargar */
+.gallery__image.swiper-lazy-loaded + .swiper-lazy-preloader {
+  display: none !important;
+}
+
+/* (Opcional) tamaño del spinner */
+.experiences-swiper .swiper-lazy-preloader {
+  width: 28px;
+  height: 28px;
+  margin: -14px 0 0 -14px; /* centrado fino */
+}
+
+
+/* Puntos (opcionales) */
+.experiences-swiper .swiper-pagination-bullet{ background: var(--muted); opacity:.5; }
+.experiences-swiper .swiper-pagination-bullet-active{ background: var(--brand); opacity:1; }
+
+/* Mobile nav + Contacto en una columna */
+@media (max-width:760px){
+  nav ul{
+    display:none;position:absolute;right:20px;top:62px;background:var(--card);
+    padding:12px;border:1px solid var(--stroke);border-radius:16px;box-shadow:var(--shadow)
+  }
+  nav ul.open{display:flex;flex-direction:column}
+  .hamb{
+    display:inline-flex;align-items:center;gap:8px;border:1px solid var(--stroke);
+    padding:8px 12px;border-radius:14px;background:#fff
+  }
+
+  .contact-grid{ grid-template-columns:1fr; align-items:start; }
+  .map-embed{ min-height:300px; }
+}
